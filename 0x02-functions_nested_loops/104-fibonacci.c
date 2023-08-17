@@ -5,33 +5,21 @@
  */
 int main(void)
 {
-	unsigned long f1 = 1, f2 = 2, tmp, mx = 100000000, f1o = 0, f2o = 0, tmpo = 0;
-	short int i = 1, initial0s;
+	int i = 0;
+	unsigned long int a = 0, b = 1, next = 0;
 
-	while (i <= 98)
+	while (i < 98)
 	{
-		if (f1o > 0)
-			printf("%lu", f1o);
-		initial0s = numLength(mx) - 1 - numLength(f1);
-		while (f1o > 0 && initial0s > 0)
-		{
-			printf("%i", 0);
-			initial0s--;
-		}
-		printf("%lu", f1);
+		next = a + b;
+		a = b;
+		b = next;
+		printf("%lu", next);
 
-		tmp = (f1 + f2) % mx;
-		tmpo = f1o + f2o + (f1 + f2) / mx;
-		f1 = f2;
-		f1o = f2o;
-		f2 = tmp;
-		f2o = tmpo;
-
-		if (i != 98)
+		if (i < 97)
 			printf(", ");
-		else
-			printf("\n");
 		i++;
 	}
+	putchar('\n');
 	return (0);
 }
+
